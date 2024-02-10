@@ -17,23 +17,22 @@ body {
 
 .main {
     display: flex;
-    /* flex-direction: column; */
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     /* align-items: flex-start; */
-    padding-top: 15%;
+    padding-top: 9%;
     background-color: rgba(0, 0, 0, 0.7);
     margin: 10%;
+    /* margin: 0 auto; */
     width: 80%;
-    height: 80vh;
+    height: 90vh;
     font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 .box {
-    /* display: flex;
-    flex-direction: column; */
     text-align: center;
-    margin-bottom: 10px;
-    /* justify-content: center; */
+    padding: 3rem;
+    padding-top: 1rem;
     
 }
 
@@ -47,11 +46,11 @@ h4 {
     display: flex;
     justify-content: center;
     margin: 1.2rem auto;
-    height: 2.5rem;
+    height: 2.7rem;
 }
 
-.search-input {
-    width: 80%;
+#search-input {
+    width: 50%;
     border-radius: 15px;
     border: none;
     margin-right: 2%;
@@ -62,7 +61,7 @@ h4 {
     padding-left: 10%;
 }
 
-.search-button {
+#search-button {
     width: 2.5rem;
     background: url(icons8-search-26.png);
     background-repeat: no-repeat;
@@ -71,4 +70,10 @@ h4 {
     border-radius: 15px;
     border: none;
     cursor: pointer;
+}
+
+#recipes {
+    color: white;
+    padding: 20px;
+    /* flex-basis: 100%; */
 }
