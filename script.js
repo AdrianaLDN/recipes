@@ -26,9 +26,8 @@ search.addEventListener("keypress", (e) => {
 //Fetching data from API
 async function sendRequest(dishName) {
 
-	// const response = await fetch(`https://api.edamam.com/search?app_id=${appID}&app_key=${appKey}&q=${encodeURIComponent(dishName)}`);
 	const response = await fetch(`https://api.edamam.com/search?app_id=${appID}&app_key=${appKey}&q=${(dishName)}`);
-	console.log(response);
+	// console.log(response);
 
 	const data = await response.json();
 	console.log(data);
@@ -39,22 +38,58 @@ async function sendRequest(dishName) {
 
 
 function useApiData(data) {
+    const recipesContainer = document.getElementById('recipes');
+    recipesContainer.innerHTML = ""; // Clear previous content
 
+    // Loop through the first 11 hits or the entire array if it has less than 11 items
+    for (let i = 0; i < Math.min(data.hits.length, 11); i++) {
+		
+        const recipe = data.hits[i].recipe;
 
-const roundedCalories = Math.round(data.hits[0].recipe.calories);
+		//Round calories to nearest integer
+        const roundedCalories = Math.round(recipe.calories);
 
-	document.getElementById('recipes').innerHTML = `
-		<div class="dish">
-			<img src="${data.hits[0].recipe.image}" class="dish-image">
-			<div class="dish-text">
-				<p class="dish-name">${data.hits[0].recipe.label}</p>
-				<p class="dish-calories">${roundedCalories}</p>
-				<p class="dish-prep">${data.hits[0].recipe.ingredientLines}</p>
-				<a href="${data.hits[0].recipe.url}">See recipe</a>
-			</div>
-		</div>
-	`
+        const recipeHtml = `
+            <div class="dish">
+                <img src="${recipe.image}" class="dish-image">
+                <div class="dish-text">
+                    <p class="dish-name">${recipe.label}</p>
+                    <p>Calories: ${roundedCalories}</p>
+                    <p>Wellness Wonderland:  <b>${recipe.dietLabels}</b></p>
+                    
+                    <a class="dish-recipe" href="${recipe.url}" target="_blank">See recipe</a>
+                </div>
+            </div>
+        `;
+
+        //<p>${recipe.ingredientLines}</p>
+
+        // Append recipe HTML to container
+        recipesContainer.innerHTML += recipeHtml;
+    }
 }
+
+
+// function useApiData(data) {
+
+
+// 	for (let i = 0; i < 11; i++) {
+// const roundedCalories = Math.round(data.hits[0].recipe.calories);
+
+// 	document.getElementById('recipes').innerHTML = `
+// 		<div class="dish">
+// 			<img src="${data.hits[0].recipe.image}" class="dish-image">
+// 			<div class="dish-text">
+// 				<p class="dish-name">${data.hits[0].recipe.label}</p>
+// 				<p>${roundedCalories}</p>
+// 				<p>${data.hits[0].recipe.dietLabels}</p>
+// 				<p>${data.hits[0].recipe.ingredientLines}</p>
+// 				<a href="${data.hits[0].recipe.url}">See recipe</a>
+// 			</div>
+// 		</div>
+// 	`
+// }
+// }
 
 
 

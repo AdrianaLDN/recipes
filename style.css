@@ -1,39 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Ubuntu+Condensed&display=swap');
 
-* {
+html {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 body {
-    background-image: url('main-pic.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* This ensures the background image remains fixed as the content scrolls */
-    
-    
+   margin: 0;
+   background-image: url('main1.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed; /* This ensures the background image remains fixed as the content scrolls */
 }
-
 .main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* align-items: flex-start; */
-    padding-top: 9%;
     background-color: rgba(0, 0, 0, 0.7);
-    margin: 10%;
-    /* margin: 0 auto; */
-    width: 80%;
-    height: 90vh;
+    border-radius: 20px;
+    margin: 10% auto;
+    width: 60%;
     font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 .box {
     text-align: center;
-    padding: 3rem;
-    padding-top: 1rem;
-    
+    padding: 2rem;
 }
 
 h4 {
@@ -46,15 +37,17 @@ h4 {
     display: flex;
     justify-content: center;
     margin: 1.2rem auto;
-    height: 2.7rem;
+    height: 3rem;
 }
 
 #search-input {
-    width: 50%;
+    width: 55%;
     border-radius: 15px;
     border: none;
     margin-right: 2%;
+    padding-left: 3%;
     background-color: rgb(185, 184, 184);
+    font-weight: 700;
 }
 
 ::placeholder {
@@ -75,5 +68,119 @@ h4 {
 #recipes {
     color: white;
     padding: 20px;
-    /* flex-basis: 100%; */
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
+
+.dish {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5%;
+    background-color: rgba(105, 104, 104, 0.4);
+    border-radius: 15px;
+}
+
+.dish-image {
+    width: 80%;
+    margin-top: 5%;
+    height: auto;
+    border-radius: 15px;
+    
+}
+
+.dish-text {
+    text-align: center;
+    width: 50%;
+    /* font-size: .8em; */
+    padding: 1.2rem 0;
+}
+
+.dish-name {
+    font-size: 1.4rem;
+}
+
+
+p {
+    margin: .8rem 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.dish-recipe {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #fff;
+    padding: 5px;
+}
+
+.dish-recipe:hover {
+    border-bottom: 2px solid #fff;
+}
+
+footer {
+    position: fixed;
+    bottom: 1rem;
+    left: 3rem;
+    color: #ffe600f1;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+@media only screen and (max-width: 768px) {
+
+
+    .dish-image {
+        width: 80%;
+    }
+
+    .dish-name {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: .9rem;
+    }
+
+    .dish-recipe {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    #recipes {
+        grid-template-columns: 1fr;
+    }
+
+    .dish-image {
+        width: 80%;
+    }
+
+    .search {
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+    }
+
+    #search-input {
+        margin: .8rem;
+        height: 3em;
+        width: 100%;
+    }
+
+    #search-button {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 30px;
+        background: url('icons8-chef-30.png');
+        background-repeat: no-repeat;
+        background-color: rgb(185, 184, 184);
+        background-position: center;
+    }
+}
+
+
