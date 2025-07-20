@@ -26,7 +26,9 @@ search.addEventListener("keypress", (e) => {
 //Fetching data from API
 async function sendRequest(dishName) {
 
-	const response = await fetch(`https://api.edamam.com/search?app_id=${appID}&app_key=${appKey}&q=${(dishName)}`);
+	// const response = await fetch(`https://api.edamam.com/search?app_id=${appID}&app_key=${appKey}&q=${(dishName)}`);
+    const response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${dishName}&app_id=${appID}&app_key=${appKey}`);
+
 	// console.log(response);
 
 	const data = await response.json();
